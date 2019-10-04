@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>XLS parser</title>
+    <meta name="description" content="XLS parser" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">body {background-color: #cccccc;} .form-wraper {border:1px solid white;} .form-group {border:1px solid #fcfcfc; padding:3px;} .help{font-size:0.8em; color: #787878;}</style>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <script src="js/main.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-5 form-wraper">
+            <!-- Photos upload Form -->
+            <form id="upload-files" method="post" action="/upload_file" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="fileInput1">Выберите исходный файл ITP XLS или XLSX</label>
+                    <input id="fileInput1" type="file" name="filesInput[]" accept=".xls, .xlsx, .zip"><!--multiple="multiple"-->
+                    <!--<p class="help-block">Выберите XLS или XLSX файл</p>-->
+
+                </div>
+                Пересчитыват USD по курсу &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input id="kurs" type="text" name="kurs" size="2" title="Курс"><br/><br/>
+                Соответствия товаров и категорий:<br/>
+                <p class="help">Можно использовать регулярные выражения. Примеры:<br/>
+                    монитор=Мониторы бу<br/>
+                    cистемний блок=Системные блоки бу<br/>
+                    ^сис.+лок.+б\.у=Системные блоки бу</p>
+                <textarea id="category" name="category" cols="45" rows="15" title="Категории товаров"></textarea><br/>
+
+                <input class="btn btn-default" type="submit" name="uploadBtn" value="Обработать файл" id="uploadBtn"/>
+            </form>
+            <br/>
+            <!-- Progress Bar -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            <span class="sr-only"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <!-- Photos Album Container -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" id="result" ></div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
