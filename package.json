@@ -10,7 +10,7 @@
     "formidable": "^1.2.1",
     "node-zip": "^1.1.1",
     "unzip": "^0.1.11",
-    "xlsx": "^0.14.3"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {},
   "scripts": {
